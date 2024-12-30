@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "noErrorTruncation": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/app": ["./app"],
+      "@/app/*": ["./app/*"],
+      "@/assets": ["./assets"],
+      "@/assets/*": ["./assets/*"],
+      "@/entities": ["./entities"],
+      "@/entities/*": ["./entities/*"],
+      "@/features": ["./features"],
+      "@/features/*": ["./features/*"],
+      "@/pages": ["./pages"],
+      "@/pages/*": ["./pages/*"],
+      "@/shared": ["./shared"],
+      "@/shared/*": ["./shared/*"],
+      "@/widgets": ["./widgets"],
+      "@/widgets/*": ["./widgets/*"]
+    }
+  },
+  "include": [
+    "src",
+    "src/shared/ui/material-ui/dialog/scroll-content-dialog/scroll-content-dialog.ui.tsx",
+    "src/entities/audit/signacc/signacc.queries.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

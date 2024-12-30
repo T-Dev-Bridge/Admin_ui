@@ -1,0 +1,25 @@
+{
+  "common":{
+    "validation":{
+        "required": "필수 입력 항목입니다.",
+        "minLen": "최소 {{minLen}}자 이상 입력해주세요.",
+        "maxLen": "최대 {{maxLen}}자 이내로 입력해주세요.",
+        "email": "이메일 형식이 아닙니다.",
+        "confirmPassword": "비밀번호가 일치하지 않습니다."
+    }
+  },
+  "notFound":{
+    "title": "페이지를 찾을 수 없습니다.",
+    "description": "죄송합니다. 요청하신 페이지를 찾을 수 없습니다."
+  },
+  "button":{
+    "back": "뒤로가기",
+    "test": "테스트"
+  },
+  "login":{
+    "fields":{
+      "userId":"아이디",
+      "password":"비밀번호"
+    }
+  }
+}
