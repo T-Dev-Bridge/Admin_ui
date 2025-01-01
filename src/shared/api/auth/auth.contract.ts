@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { baseContracts } from "@/entities/base";
-import { baseContractsDto } from "../base";
+import { baseContracts } from "entities/common";
+import { baseContractsDto } from "../common";
 
 export const LoginResponseDtoSchema = z.object({
   userId: z.string(),

@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { z } from "zod";
-import { baseContractsDto } from "./base";
+import { baseContractsDto } from "./common";
 
 export const baseClient = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,

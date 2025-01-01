@@ -1,15 +1,15 @@
 import { z } from "zod";
 import { ManagerDtoSchema } from "@/shared/api/admin/manager";
-import { BaseReseponsePaginationDtoSchema } from "@/shared/api/base/base.contracts";
-import { BaseSchema } from "@/entities/base/base.contracts";
+import { BaseReseponsePaginationDtoSchema } from "@/shared/api/common";
+import { CommonSchema } from "@/entities/common";
 
-export const ManagerSchema = BaseSchema.extend({
+export const ManagerSchema = CommonSchema.extend({
   id: z.string(),
   username: z.string(),
   password: z.string().optional(),
   email: z.string(),
   pwdId: z.number().optional(),
-  roleId: z.string().optional(),
+  roleId: z.number().optional(),
   enabled: z.boolean(),
 });
 

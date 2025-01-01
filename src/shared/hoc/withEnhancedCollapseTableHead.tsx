@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
-import { baseTypes } from "@/entities/base";
+import { baseTypes } from "entities/common";
 import { CustomCheckbox } from "../ui/forms";
 
 export type TableHeadCellType = {

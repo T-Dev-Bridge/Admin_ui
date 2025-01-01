@@ -1,7 +1,7 @@
 import { AxiosContracts } from "@/shared/lib/axios";
 import { apiPathKeys } from "@/shared/lib/axios/config";
 import { baseClient } from "..";
-import { baseContractsDto } from "../base";
+import { baseContractsDto } from "../common";
 import {
   LoginResponseDtoSchema,
   LoginUserDtoSchema,

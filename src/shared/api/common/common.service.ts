@@ -1,7 +1,11 @@
 import { AxiosResponse } from "axios";
 import { AxiosContracts } from "@/shared/lib/axios";
 import { baseClient } from "../index";
-import { baseContractsDto } from ".";
+import {
+  BaseListResponseDtoSchema,
+  BaseResponseDtoSchema,
+  BaseAllListResponseDtoSchema,
+} from ".";
 
 interface RequestParams<TRequest> {
   url?: string;
@@ -10,7 +14,7 @@ interface RequestParams<TRequest> {
   responseSchema: any;
 }
 
-export class BaseService {
+export class CommonService {
   static baseUrl: string;
 
   static setBaseUrl(url: string) {
@@ -31,9 +35,7 @@ export class BaseService {
       })
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(
-            baseContractsDto.BaseListResponseDtoSchema(params.schema),
-          ),
+          BaseResponseDtoSchema(BaseListResponseDtoSchema(params.schema)),
         ),
       );
   }
@@ -68,9 +70,7 @@ export class BaseService {
       })
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(
-            baseContractsDto.BaseAllListResponseDtoSchema(params.schema),
-          ),
+          BaseResponseDtoSchema(BaseAllListResponseDtoSchema(params.schema)),
         ),
       );
   }
@@ -84,9 +84,7 @@ export class BaseService {
     return baseClient
       .get(fullUrl, params.config)
       .then(
-        AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(params.schema),
-        ),
+        AxiosContracts.responseContract(BaseResponseDtoSchema(params.schema)),
       );
   }
 
@@ -103,7 +101,7 @@ export class BaseService {
       .post(fullUrl, validatedData)
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(params.responseSchema),
+          BaseResponseDtoSchema(params.responseSchema),
         ),
       );
   }
@@ -120,7 +118,7 @@ export class BaseService {
       .put(fullUrl, validatedData)
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(params.responseSchema),
+          BaseResponseDtoSchema(params.responseSchema),
         ),
       );
   }
@@ -139,7 +137,7 @@ export class BaseService {
 
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(params.responseSchema),
+          BaseResponseDtoSchema(params.responseSchema),
         ),
       );
   }
@@ -156,7 +154,7 @@ export class BaseService {
       .delete(fullUrl, { data: validatedData })
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(params.responseSchema),
+          BaseResponseDtoSchema(params.responseSchema),
         ),
       );
   }
@@ -173,7 +171,7 @@ export class BaseService {
       .delete(fullUrl, { data: validatedData })
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(params.responseSchema),
+          BaseResponseDtoSchema(params.responseSchema),
         ),
       );
   }

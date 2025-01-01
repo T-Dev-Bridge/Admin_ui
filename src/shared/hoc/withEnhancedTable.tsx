@@ -20,7 +20,7 @@ import { TablePaginationActions } from "@/shared/ui/tables";
 import {
   BaseFilterActions,
   BaseFilterState,
-} from "@/entities/base/base.filter";
+} from "@/entities/common/common.filter.ts";
 
 interface ExternalTableProps<T> {
   namespace: string;

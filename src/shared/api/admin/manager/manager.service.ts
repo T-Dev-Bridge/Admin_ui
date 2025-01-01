@@ -12,10 +12,10 @@ import {
   UpdateManagerDto,
 } from "@/shared/api/admin/manager/manager.types";
 import { UserDtoSchema } from "@/shared/api/auth/auth.contract";
-import { BaseService } from "@/shared/api/base/base.service";
+import { CommonService } from "@/shared/api/common/common.service.ts";
 import { apiPathKeys } from "@/shared/lib/axios/config";
 
-export class ManagerService extends BaseService {
+export class ManagerService extends CommonService {
   static {
     this.setBaseUrl(`${apiPathKeys.admin()}/admin/manager`);
   }

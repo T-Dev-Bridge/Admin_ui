@@ -27,7 +27,7 @@ export interface Base {
   seq?: number | null;
 }
 
-export const BaseSchema = z.object({
+export const CommonSchema = z.object({
   seq: z.number().nullable().optional(),
   id: z.any().nullable().optional(),
   createdWho: z.string().nullable().optional(),
@@ -36,7 +36,7 @@ export const BaseSchema = z.object({
   updatedAt: z.string().nullable().optional(),
 });
 
-export const BasePaginationSchema = z.object({
+export const CommonPaginationSchema = z.object({
   endIndex: z.number(),
   startIndex: z.number(),
   lastPage: z.number(),

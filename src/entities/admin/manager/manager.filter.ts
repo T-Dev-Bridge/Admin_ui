@@ -2,13 +2,13 @@ import { DevtoolsOptions } from "zustand/middleware";
 import {
   BaseFilterActions,
   createBaseFilterStore,
-  defaultBaseFilterState,
-} from "@/entities/base/base.filter";
-import { FilterQuery } from "@/entities/base/base.types";
+  defaultCommonFilterState,
+} from "@/entities/common/common.filter.ts";
+import { FilterQuery } from "@/entities/common/common.types.ts";
 
 export type ManagerFilterStore = ReturnType<typeof createManagerFilterStore>;
 export const defaultManagerFilterState: ManagerFilterState = {
-  ...defaultBaseFilterState,
+  ...defaultCommonFilterState,
   additionalManagerSpecificField: "",
 };
 

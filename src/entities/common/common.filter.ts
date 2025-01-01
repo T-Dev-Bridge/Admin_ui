@@ -1,11 +1,10 @@
 import { StateCreator, create } from "zustand";
 import { DevtoolsOptions, devtools } from "zustand/middleware";
 import { createSelectors } from "@/shared/lib/zustand";
-import { baseTypes } from "@/entities/base";
-import { Order, SearchOp } from "./base.types";
+import { SearchOp, Order } from "@/entities/common";
 
-export type BaseFilterStore = ReturnType<typeof createBaseFilterStore>;
-export const defaultBaseFilterState: BaseFilterState = {
+export type CommonFilterStore = ReturnType<typeof createBaseFilterStore>;
+export const defaultCommonFilterState: BaseFilterState = {
   index: 0,
   size: 5,
   selected: [],
@@ -25,7 +24,7 @@ export function createBaseFilterSlice<
     [],
     BaseFilterState & BaseFilterActions
   > = (set) => ({
-    ...defaultBaseFilterState,
+    ...defaultCommonFilterState,
     ...initialState,
 
     setIndex(index: number) {
@@ -34,10 +33,10 @@ export function createBaseFilterSlice<
     setSize(size: number) {
       set({ size }, false, `setSize ${size}`);
     },
-    setSearchOp(searchOp: baseTypes.SearchOp) {
+    setSearchOp(searchOp: SearchOp) {
       set({ searchOp }, false, `setSearchOp ${searchOp}`);
     },
-    setOrder(order: baseTypes.Order) {
+    setOrder(order: Order) {
       set({ order }, false, `setOrder ${order}`);
     },
     setOrderBy(orderBy: string) {
@@ -77,7 +76,7 @@ export function createBaseFilterSlice<
       );
     },
     reset() {
-      set({ ...defaultBaseFilterState, ...initialState }, false, "reset");
+      set({ ...defaultCommonFilterState, ...initialState }, false, "reset");
     },
     ...(extendActions ? extendActions(set) : {}),
   });
@@ -117,8 +116,8 @@ export type BaseFilterState = {
 export type BaseFilterActions = {
   setIndex(index: number): void;
   setSize(size: number): void;
-  setSearchOp(searchOp: baseTypes.SearchOp): void;
-  setOrder(order: baseTypes.Order): void;
+  setSearchOp(searchOp: SearchOp): void;
+  setOrder(order: Order): void;
   setOrderBy(orderBy: string): void;
   setSelected(selected: any[]): void;
   setKeywords(keywords: string): void;
