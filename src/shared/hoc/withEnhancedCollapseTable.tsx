@@ -22,12 +22,12 @@ import { TableHeadCellType } from "@/shared/hoc/withEnhancedTableHead";
 import { CustomCheckbox } from "@/shared/ui/forms";
 import { TablePaginationActions } from "@/shared/ui/tables";
 import {
-  BaseFilterActions,
-  BaseFilterState,
-} from "@/entities/common/common.filter.ts";
+  CommonFilterActions,
+  CommonFilterState,
+} from "@/entities/common/common.filter";
 
 interface ExternalTableProps<T> {
-  filter: BaseFilterState & BaseFilterActions; // 필터
+  filter: CommonFilterState & CommonFilterActions; // 필터
   tableHeadCells: TableHeadCellType[]; // 테이블 헤더 셀 타입 배열
   renderRowActions?: (row: T) => React.ReactNode; // 각 행에 대한 액션을 렌더링하는 함수
   renderCells: (row: T, cell: TableHeadCellType) => React.ReactNode; // 각 셀에 대한 렌더 함수
@@ -47,7 +47,7 @@ type CombinedTableProps<T> = ExternalTableProps<T> &
 
 interface RowExternalTableProps<T> {
   row: T;
-  filter: BaseFilterState & BaseFilterActions;
+  filter: CommonFilterState & CommonFilterActions;
   tableHeadCells: TableHeadCellType[];
   CollpaseComponent: React.ComponentType<any>;
   renderCells: (row: T, cell: TableHeadCellType) => React.ReactNode;

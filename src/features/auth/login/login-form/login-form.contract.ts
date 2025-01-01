@@ -1,13 +1,13 @@
 // 조직 생성 enity 타입 정의
 import { z } from "zod";
-import { baseContractsDto } from "shared/api/common";
+import { validationMessages } from "@/shared/api/common";
 
 export const LoginSchema = z.object({
   username: z.string().min(1, {
-    message: baseContractsDto.validationMessages.commonRequired,
+    message: validationMessages.commonRequired,
   }),
   password: z.string().min(8, {
-    message: baseContractsDto.validationMessages.commonMinLen8,
+    message: validationMessages.commonMinLen8,
   }),
 });
 

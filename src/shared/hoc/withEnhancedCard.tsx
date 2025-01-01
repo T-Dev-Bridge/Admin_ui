@@ -15,12 +15,12 @@ import { useTranslation } from "react-i18next";
 import { BlankCard } from "@/shared/ui/card";
 import { TablePaginationActions } from "@/shared/ui/tables";
 import {
-  BaseFilterActions,
-  BaseFilterState,
-} from "@/entities/common/common.filter.ts";
+  CommonFilterActions,
+  CommonFilterState,
+} from "@/entities/common/common.filter";
 
 interface ExternalCardProps<T> {
-  filter: BaseFilterState & BaseFilterActions; // 필터
+  filter: CommonFilterState & CommonFilterActions; // 필터
   renderCardTitle: (row: T) => React.ReactNode; // 각 셀에 대한 렌더 함수
   renderCardActions?: (row: T) => React.ReactNode; // 각 행에 대한 액션을 렌더링하는 함수
   renderCardBody: (row: T) => React.ReactNode; // 각 셀에 대한 렌더 함수

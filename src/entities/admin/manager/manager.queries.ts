@@ -6,7 +6,7 @@ import {
   transformManagersDtoToManagers,
 } from "@/entities/admin/manager/manager.lib";
 import { Managers } from "@/entities/admin/manager/manager.types";
-import { FilterQuery } from "@/entities/common/common.types.ts";
+import { FilterQuery } from "@/entities/common/common.types";
 
 export class ManagerQueries {
   static readonly keys = {

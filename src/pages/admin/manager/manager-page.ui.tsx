@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import { Breadcrumb } from "@/shared/ui/breadcrumb";
 import { PageContainer } from "@/shared/ui/container";
 import { ManagerQueries } from "@/entities/admin";
+import { ManagerTable } from "@/features/admin/manager/manager-table";
+import { managerModel } from "@/pages/admin/manager/manager-page.model";
 
 export function ManagerPage() {
   const { t } = useTranslation();
@@ -22,6 +24,10 @@ export function ManagerPage() {
       <Breadcrumb
         title={t("menu.manager")}
         items={BCrumb}
+      />
+      <ManagerTable
+        useManagerFilterStore={managerModel.useManageFilterStore}
+        managersQueryOptions={boundManagersQuery}
       />
     </PageContainer>
   );

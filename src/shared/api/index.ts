@@ -1,21 +1,20 @@
 import axios, { AxiosError } from "axios";
 import { z } from "zod";
-import { baseContractsDto } from "./common";
+import { BaseResponseDtoSchema, BaseErrorResponseDtoSchema } from "./common";
 
 export const baseClient = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 export function handleGenericError(error: AxiosError) {
-  const errorValidation = baseContractsDto
-    .BaseResponseDtoSchema(baseContractsDto.BaseErrorResponseDtoSchema)
-    .safeParse(error.response?.data);
+  const errorValidation = BaseResponseDtoSchema(
+    BaseErrorResponseDtoSchema,
+  ).safeParse(error.response?.data);
 
   if (errorValidation.success) {
-    const baseErrorValidation =
-      baseContractsDto.BaseErrorResponseDtoSchema.safeParse(
-        errorValidation.data.data,
-      );
+    const baseErrorValidation = BaseErrorResponseDtoSchema.safeParse(
+      errorValidation.data.data,
+    );
 
     if (baseErrorValidation.success) {
       const { message } = baseErrorValidation.data;

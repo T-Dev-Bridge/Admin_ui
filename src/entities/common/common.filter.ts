@@ -4,25 +4,25 @@ import { createSelectors } from "@/shared/lib/zustand";
 import { SearchOp, Order } from "@/entities/common";
 
 export type CommonFilterStore = ReturnType<typeof createBaseFilterStore>;
-export const defaultCommonFilterState: BaseFilterState = {
+export const defaultCommonFilterState: CommonFilterState = {
   index: 0,
   size: 5,
   selected: [],
   searchOp: "OR",
   keywords: "",
   order: "desc",
-  orderBy: "modDt",
+  orderBy: "updatedAt",
 };
 
 export function createBaseFilterSlice<
-  T extends BaseFilterState,
-  A extends BaseFilterActions,
+  T extends CommonFilterState,
+  A extends CommonFilterActions,
 >(initialState?: Partial<T>, extendActions?: (set: any) => Partial<A>) {
   const filterSlice: StateCreator<
-    BaseFilterState & BaseFilterActions,
+    CommonFilterState & CommonFilterActions,
     [["zustand/devtools", never]],
     [],
-    BaseFilterState & BaseFilterActions
+    CommonFilterState & CommonFilterActions
   > = (set) => ({
     ...defaultCommonFilterState,
     ...initialState,
@@ -65,7 +65,9 @@ export function createBaseFilterSlice<
     setToDate(toDate: string) {
       set({ toDate }, false, `setToDate ${toDate}`);
     },
-    setState(updater: (state: BaseFilterState) => Partial<BaseFilterState>) {
+    setState(
+      updater: (state: CommonFilterState) => Partial<CommonFilterState>,
+    ) {
       set(
         (prevState) => {
           const updatedState = updater(prevState);
@@ -85,8 +87,8 @@ export function createBaseFilterSlice<
 }
 
 export function createBaseFilterStore<
-  T extends BaseFilterState,
-  A extends BaseFilterActions = BaseFilterActions,
+  T extends CommonFilterState,
+  A extends CommonFilterActions = CommonFilterActions,
 >(config: {
   initialState?: Partial<T>;
   devtoolsOptions: DevtoolsOptions;
@@ -100,7 +102,7 @@ export function createBaseFilterStore<
   return useFilterStore;
 }
 
-export type BaseFilterState = {
+export type CommonFilterState = {
   index: number;
   size: number;
   selected: any[];
@@ -113,7 +115,7 @@ export type BaseFilterState = {
   toDate?: string;
 };
 
-export type BaseFilterActions = {
+export type CommonFilterActions = {
   setIndex(index: number): void;
   setSize(size: number): void;
   setSearchOp(searchOp: SearchOp): void;
@@ -124,6 +126,8 @@ export type BaseFilterActions = {
   setPidField(pidField: string): void;
   setFromDate(fromDate: string): void;
   setToDate(toDate: string): void;
-  setState(updater: (state: BaseFilterState) => Partial<BaseFilterState>): void;
+  setState(
+    updater: (state: CommonFilterState) => Partial<CommonFilterState>,
+  ): void;
   reset(): void;
 };

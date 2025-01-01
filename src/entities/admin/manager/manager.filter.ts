@@ -1,10 +1,10 @@
 import { DevtoolsOptions } from "zustand/middleware";
 import {
-  BaseFilterActions,
+  CommonFilterActions,
   createBaseFilterStore,
   defaultCommonFilterState,
-} from "@/entities/common/common.filter.ts";
-import { FilterQuery } from "@/entities/common/common.types.ts";
+} from "@/entities/common/common.filter";
+import { FilterQuery } from "@/entities/common/common.types";
 
 export type ManagerFilterStore = ReturnType<typeof createManagerFilterStore>;
 export const defaultManagerFilterState: ManagerFilterState = {
@@ -37,6 +37,6 @@ export type ManagerFilterState = FilterQuery & {
   additionalManagerSpecificField?: string;
 };
 
-export type ManagerFilterActions = BaseFilterActions & {
+export type ManagerFilterActions = CommonFilterActions & {
   setAdditionalManagerField(value: string): void;
 };

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { baseContracts } from "entities/common";
-import { baseContractsDto } from "../common";
+import { CommonSchema } from "@/entities/common";
+import { validationMessages } from "../common";
 
 export const LoginResponseDtoSchema = z.object({
   userId: z.string(),
@@ -22,7 +22,7 @@ export const LoginResponseWithTokenDtoSchema = LoginResponseDtoSchema.extend({
   refreshToken: z.string(),
 });
 
-export const UserDtoSchema = baseContracts.BaseSchema.extend({
+export const UserDtoSchema = CommonSchema.extend({
   id: z.string(),
   username: z.string(),
   password: z.string().nullable().optional(),
@@ -34,9 +34,9 @@ export const UserDtoSchema = baseContracts.BaseSchema.extend({
 
 export const LoginUserDtoSchema = z.object({
   username: z.string().min(1, {
-    message: baseContractsDto.validationMessages.commonRequired,
+    message: validationMessages.commonRequired,
   }),
   password: z.string().min(8, {
-    message: baseContractsDto.validationMessages.commonMinLen8,
+    message: validationMessages.commonMinLen8,
   }),
 });

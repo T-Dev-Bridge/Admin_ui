@@ -6,9 +6,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { Order } from "entities/common";
 import { useTranslation } from "react-i18next";
-import { baseTypes } from "entities/common";
-import { constants } from "../constants";
+import { COMMON_NAMESPACE } from "../constants/namespace";
 import { CustomCheckbox } from "../ui/forms";
 
 export type TableHeadCellType = {
@@ -21,7 +21,7 @@ export type TableHeadCellType = {
 interface ExternalTableHeadProps<T> {
   numSelected: number;
   tableHeadCells: TableHeadCellType[];
-  order?: baseTypes.Order;
+  order?: Order;
   rowCount: number;
   onSelectAllClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onRequestSort?: (event: React.MouseEvent<unknown>, property: keyof T) => void;
@@ -102,7 +102,7 @@ export function withEnhancedTableHead<T>(
                   >
                     <Typography variant="h6">
                       {t(
-                        `${tableHeadCell.commonNamespace ? constants.COMMON_NAMESPACE : translationNamespace}.${tableHeadCell.name}`,
+                        `${tableHeadCell.commonNamespace ? COMMON_NAMESPACE : translationNamespace}.${tableHeadCell.name}`,
                       )}
                     </Typography>
                   </TableSortLabel>
@@ -113,7 +113,7 @@ export function withEnhancedTableHead<T>(
               <TableCell key={tableHeadCell.name}>
                 <Typography variant="h6">
                   {t(
-                    `${tableHeadCell.commonNamespace ? constants.COMMON_NAMESPACE : translationNamespace}.${tableHeadCell.name}`,
+                    `${tableHeadCell.commonNamespace ? COMMON_NAMESPACE : translationNamespace}.${tableHeadCell.name}`,
                   )}
                 </Typography>
               </TableCell>

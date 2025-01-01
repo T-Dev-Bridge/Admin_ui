@@ -5,3 +5,4 @@ export {
   transformManagerDtoToManager,
   transformManagersDtoToManagers,
 } from "./manager.lib";
+export * as filterManagerModel from "./manager.filter";

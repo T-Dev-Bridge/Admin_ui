@@ -28,7 +28,7 @@ export function Login({ title, subtext }: LoginProps) {
       if (data == null) {
         return;
       }
-      navigate(pathKeys.root);
+      navigate(pathKeys.admin.manager());
     },
     onError: (error: AxiosError) => {
       handleError(

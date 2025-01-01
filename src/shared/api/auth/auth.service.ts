@@ -1,7 +1,7 @@
 import { AxiosContracts } from "@/shared/lib/axios";
 import { apiPathKeys } from "@/shared/lib/axios/config";
 import { baseClient } from "..";
-import { baseContractsDto } from "../common";
+import { BaseResponseDtoSchema } from "../common";
 import {
   LoginResponseDtoSchema,
   LoginUserDtoSchema,
@@ -25,7 +25,7 @@ export class AuthService {
       .post(`${apiPathKeys.auth()}/api/auth/login`, { ...loginUserDto })
       .then(
         AxiosContracts.responseContract(
-          baseContractsDto.BaseResponseDtoSchema(LoginResponseDtoSchema),
+          BaseResponseDtoSchema(LoginResponseDtoSchema),
         ),
       );
   }

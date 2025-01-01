@@ -5,4 +5,5 @@ export {
   ManagerQueries,
   transformManagerDtoToManager,
   transformManagersDtoToManagers,
+  filterManagerModel,
 } from "./manager";

@@ -68,7 +68,7 @@ export function LoginPage() {
           <Container>
             <Box p={4}>
               <Login
-                title="AI 민원 행정 관리자포털 로그인"
+                title="Dev_Bridge 관리자 포털 로그인"
                 // subtext={
                 //   <Typography
                 //     variant="subtitle1"
