@@ -141,7 +141,7 @@ export const LoginForm = ({
             type="submit"
             loading={isLoading ?? false}
             disabled={!canSubmit || isLoading}
-            text={t("button.signin")}
+            text={t("button.login")}
           />
         </Box>
       </Stack>

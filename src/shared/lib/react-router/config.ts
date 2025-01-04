@@ -6,9 +6,6 @@ export const pathKeys = {
   page404() {
     return pathKeys.root.concat("404");
   },
-  profile() {
-    return pathKeys.root.concat("profile");
-  },
   admin: {
     root() {
       return pathKeys.root.concat("admin");

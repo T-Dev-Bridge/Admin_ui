@@ -1,0 +1,36 @@
+{
+  "common": {
+    "validation": {
+      "required": "This field is required.",
+      "minLen": "Please enter at least {{minLen}} characters.",
+      "maxLen": "Please enter no more than {{maxLen}} characters.",
+      "email": "Invalid email format.",
+      "confirmPassword": "Passwords do not match."
+    },
+    "work": "Work"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you requested could not be found."
+  },
+  "button": {
+    "back": "Back",
+    "test": "Test",
+    "add": "Add",
+    "delete": "Delete",
+    "login": "Login"
+  },
+  "login": {
+    "fields": {
+      "userId": "ID",
+      "password": "Password"
+    }
+  },
+  "manager": {
+    "seq": "#",
+    "username": "Manager Name",
+    "email": "Email",
+    "enabled": "Account Status",
+    "createdAt": "Registration Date"
+  }
+}

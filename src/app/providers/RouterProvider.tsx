@@ -56,7 +56,7 @@ const ProtectedRoute = ({ element }: { element: React.ReactElement }) => {
   if (!session) {
     return (
       <Navigate
-        to={pathKeys.root}
+        to={pathKeys.login()}
         replace
       />
     );
@@ -75,7 +75,7 @@ const browserRouter = createBrowserRouter([
         children: [
           {
             path: pathKeys.root,
-            element: <Navigate to={pathKeys.profile()} />,
+            element: <Navigate to={pathKeys.admin.manager()} />,
           },
           ...protectedAuthRoutes,
         ],

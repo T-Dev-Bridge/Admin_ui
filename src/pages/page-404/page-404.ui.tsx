@@ -1,26 +1,11 @@
-import { useState } from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { useSnackbar } from "@/app/providers/SnackbarProvider";
 import { pathKeys } from "@/shared/lib/react-router";
-import { useSessionStore } from "@/shared/session";
 import ErrorImg from "@/assets/images/backgrounds/errorimg.svg";
 
 export function Page404() {
   const { t } = useTranslation();
-  const { showSnackbar } = useSnackbar();
-  const [num, setNum] = useState(0);
-  const session = useSessionStore.use.session();
-
-  const test = () => {
-    console.log("token : ", session?.accessToken);
-    console.log("refreshToken : ", session?.refreshToken);
-    console.log("userId : ", session?.userId);
-    console.log("userName : ", session?.username);
-    showSnackbar("hello", "success");
-    setNum(num + 1);
-  };
 
   return (
     <Box
@@ -57,14 +42,6 @@ export function Page404() {
           disableElevation
         >
           {t("button.back")}
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={test}
-          disableElevation
-        >
-          useQuery 알람 테스트
         </Button>
       </Container>
     </Box>
