@@ -7,6 +7,14 @@
       "email": "Invalid email format.",
       "confirmPassword": "Passwords do not match."
     },
+    "dialog": {
+      "add": "Add {{ entity }} Information",
+      "update": "Update {{ entity }} Information",
+      "delete": "Delete {{ entity }} Information",
+      "detail": "{{ entity }} Information Details",
+      "change": "Change {{ entity }}",
+      "expired": "{{ entity }} Expired"
+    },
     "work": "Work"
   },
   "notFound": {
@@ -18,7 +26,8 @@
     "test": "Test",
     "add": "Add",
     "delete": "Delete",
-    "login": "Login"
+    "login": "Login",
+    "search": "Search"
   },
   "login": {
     "fields": {
@@ -28,6 +37,7 @@
   },
   "manager": {
     "seq": "#",
+    "manager": "관리자",
     "username": "Manager Name",
     "email": "Email",
     "enabled": "Account Status",

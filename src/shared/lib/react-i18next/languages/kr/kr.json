@@ -7,6 +7,14 @@
       "email": "이메일 형식이 아닙니다.",
       "confirmPassword": "비밀번호가 일치하지 않습니다."
     },
+    "dialog": {
+      "add": "{{ entity }} 정보 추가",
+      "update": "{{ entity }} 정보 수정",
+      "delete": "{{ entity }} 정보 삭제",
+      "detail": "{{ entity }} 정보 상세",
+      "change": "{{ entity }} 변경",
+      "expired": "{{ entity }} 만료"
+    },
     "work": "작업"
   },
   "notFound": {
@@ -18,7 +26,8 @@
     "test": "테스트",
     "add": "추가",
     "delete": "삭제",
-    "login": "로그인"
+    "login": "로그인",
+    "search": "검색"
   },
   "login": {
     "fields": {

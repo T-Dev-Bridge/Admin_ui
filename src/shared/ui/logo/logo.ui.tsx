@@ -37,12 +37,12 @@ export function Logo() {
         {/* {activeMode === "dark" ? <LogoLight /> : <LogoDark />} */}
         <div>
           <Typography
-            variant="h4"
+            variant="h5"
             textAlign="center"
             color="textSecondary"
             mb={1}
           >
-            AI 민원 행정 관리자포털
+            Dev-Bridge 관리자 페이지
           </Typography>
         </div>
       </LinkStyled>

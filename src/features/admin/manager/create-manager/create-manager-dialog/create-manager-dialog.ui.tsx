@@ -25,7 +25,7 @@ function CreateManagerDialogContent({
             control={control}
             errors={errors}
             type="id"
-            labelKey="user.fields.userId"
+            labelKey="manager.fields.id"
             required
           />
         </Grid2>
@@ -35,7 +35,7 @@ function CreateManagerDialogContent({
             control={control}
             errors={errors}
             type="username"
-            labelKey="user.fields.name"
+            labelKey="manager.fields.username"
             required
           />
         </Grid2>
@@ -51,7 +51,7 @@ function CreateManagerDialogContent({
             control={control}
             errors={errors}
             type="password"
-            labelKey="user.fields.password"
+            labelKey="manager.fields.password"
             required
           />
         </Grid2>
@@ -61,7 +61,7 @@ function CreateManagerDialogContent({
             control={control}
             errors={errors}
             type="password"
-            labelKey="user.fields.confirmPassword"
+            labelKey="manager.fields.confirmPassword"
             required
           />
         </Grid2>
@@ -76,26 +76,8 @@ function CreateManagerDialogContent({
             control={control}
             errors={errors}
             type="email"
-            labelKey="user.fields.email"
+            labelKey="manager.fields.email"
             required
-          />
-        </Grid2>
-        <Grid2 size={4}>
-          <LabeledFormInput
-            name="phone"
-            control={control}
-            errors={errors}
-            type="phone"
-            labelKey="user.fields.phone"
-          />
-        </Grid2>
-        <Grid2 size={4}>
-          <LabeledFormInput
-            name="mobile"
-            control={control}
-            errors={errors}
-            type="mobile"
-            labelKey="user.fields.mobile"
           />
         </Grid2>
       </Grid2>
@@ -126,7 +108,7 @@ function CreateManagerDialogContent({
         {/*    errors={errors}*/}
         {/*    control={control}*/}
         {/*    namespace={constants.USER_NAMESPACE}*/}
-        {/*    labelKey="user.fields.group"*/}
+        {/*    labelKey="manager.fields.group"*/}
         {/*    options={groupOptions}*/}
         {/*    customPlaceholder={{*/}
         {/*      label: "조직을 선택해 주세요.",*/}
@@ -134,32 +116,7 @@ function CreateManagerDialogContent({
         {/*    }}*/}
         {/*  />*/}
         {/*</Grid2>*/}
-        <Grid2 size={3}>
-          <LabeledFormInput
-            name="company"
-            control={control}
-            errors={errors}
-            type="company"
-            labelKey="user.fields.company"
-          />
-        </Grid2>
-        <Grid2 size={3}>
-          <LabeledFormInput
-            name="title"
-            control={control}
-            errors={errors}
-            type="title"
-            labelKey="user.fields.title"
-          />
-        </Grid2>
       </Grid2>
-      <LabeledFormInput
-        name="rmk"
-        control={control}
-        errors={errors}
-        type="rmk"
-        labelKey="user.fields.rmk"
-      />
     </Box>
   );
 }

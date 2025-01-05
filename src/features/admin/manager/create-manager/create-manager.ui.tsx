@@ -27,7 +27,7 @@ export function CreateManager() {
       setOpenCreateDialog(false);
       showSnackbar(
         t("common.message.success", {
-          entity: t("user.entity"),
+          entity: t("manager.entity"),
           action: t("common.action.add"),
         }),
         "success",
@@ -38,7 +38,7 @@ export function CreateManager() {
     onError: (error: AxiosError) => {
       showSnackbar(
         t("common.message.error", {
-          entity: t("user.entity"),
+          entity: t("manager.entity"),
           action: t("common.action.add"),
         }),
         "error",
@@ -79,14 +79,14 @@ export function CreateManager() {
       </Button>
       <CreateManagerDialog
         ref={createManagerFormDialogRef}
-        title={t("common.dialog.add", { entity: t("user.entity") })}
+        title={t("common.dialog.add", { entity: t("manager.entity") })}
         defaultValues={{
           id: "",
           password: "",
           confirmPassword: "",
           email: "",
           username: "",
-          roleId: -1,
+          roleId: 9999,
         }}
         open={openCreateDialog}
         setOpen={setOpenCreateDialog}

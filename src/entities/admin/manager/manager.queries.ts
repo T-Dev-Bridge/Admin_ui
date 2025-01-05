@@ -35,7 +35,7 @@ export class ManagerQueries {
       keywords = "",
       searchOp = "OR",
       order = "desc",
-      orderBy = "modDt",
+      orderBy = "updatedAt",
     } = filter || {};
 
     const sortProperties = `${orderBy};${order}`;

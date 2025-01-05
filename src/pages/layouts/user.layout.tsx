@@ -8,6 +8,7 @@ import useCustomizerStore from "@/shared/store/useCustomizerStore";
 import { Customizer } from "@/shared/ui/customizer";
 import { ErrorHandler, logError } from "@/shared/ui/error-handler";
 import { Spinner } from "@/shared/ui/spinner";
+import { Sidebar } from "@/features/layouts/sidebar";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -53,6 +54,10 @@ const UserNavigation = enhance(() => {
 
   return (
     <>
+      {/* ------------------------------------------- */}
+      {/* Sidebar */}
+      {/* ------------------------------------------- */}
+      {customizer.isHorizontal ? "" : <Sidebar />}
       {/* ------------------------------------------- */}
       {/* Main Wrapper */}
       {/* ------------------------------------------- */}
