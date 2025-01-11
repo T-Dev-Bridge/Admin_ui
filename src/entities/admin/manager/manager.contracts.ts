@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ManagerDtoSchema } from "@/shared/api/admin/manager";
-import { BaseReseponsePaginationDtoSchema } from "@/shared/api/common";
+import { BaseResponsePaginationDtoSchema } from "@/shared/api/common";
 import { CommonSchema } from "@/entities/common";
 
 export const ManagerSchema = CommonSchema.extend({
@@ -15,5 +15,5 @@ export const ManagerSchema = CommonSchema.extend({
 
 export const ManagersSchema = z.object({
   list: z.array(ManagerDtoSchema),
-  pagination: BaseReseponsePaginationDtoSchema,
+  pagination: BaseResponsePaginationDtoSchema,
 });

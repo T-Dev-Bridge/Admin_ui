@@ -15,6 +15,9 @@ import { UserDtoSchema } from "@/shared/api/auth/auth.contract";
 import { CommonService } from "@/shared/api/common/common.service";
 import { apiPathKeys } from "@/shared/lib/axios/config";
 
+/**
+ * Axios 요청 정의 클래스
+ */
 export class ManagerService extends CommonService {
   static {
     this.setBaseUrl(`${apiPathKeys.admin()}/api/admin/manager`);
@@ -22,6 +25,8 @@ export class ManagerService extends CommonService {
 
   /**
    * 기본 Page 조회 쿼리
+   * params : 요청 url Param Object
+   * schema: 응답 데이터 Schema
    */
   static managersQuery(config: {
     params: ManagerParamsDto;
@@ -38,6 +43,8 @@ export class ManagerService extends CommonService {
 
   /**
    * findById 쿼리
+   * params : 요청 url Param Object
+   * schema: 응답 데이터 Schema
    */
   static managerQuery(
     id: string,
@@ -53,6 +60,8 @@ export class ManagerService extends CommonService {
 
   /**
    * 기본 Post 요청
+   * requestSchema: 요청 Body Schema
+   * responseSchema: 응답 Body Schema
    */
   static createManagerMutation(data: {
     createManagerDto: CreateManagerDto;
@@ -68,6 +77,8 @@ export class ManagerService extends CommonService {
 
   /**
    * 기본 Put 요청
+   * requestSchema: 요청 Body Schema
+   * responseSchema: 응답 Body Schema
    */
   static updateManagerMutation(data: {
     updateManagerDto: UpdateManagerDto;
@@ -81,6 +92,8 @@ export class ManagerService extends CommonService {
 
   /**
    * 기본 Delete 요청
+   * requestSchema: 요청 Body Schema
+   * responseSchema: 응답 Body Schema
    */
   static deleteManagerMutation(data: {
     deleteManagerDto: DeleteManagerDto;

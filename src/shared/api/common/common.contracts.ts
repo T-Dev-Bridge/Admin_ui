@@ -65,6 +65,9 @@ export const validationMessages: ValidationMessages = createValidationMessages({
   confirmPassword: { key: "common.validation.confirmPassword" },
 });
 
+/**
+ * 기본 Axios 응답 형식 ( BackEnd CommonResponse )
+ */
 export const BaseResponseDtoSchema = <T>(dataSchema?: z.ZodType<T>) =>
   z.object({
     success: z.boolean(),
@@ -79,6 +82,9 @@ export const BaseErrorResponseDtoSchema = z.object({
   status: z.number(),
 });
 
+/**
+ * Base Entity Schema
+ */
 export const BaseDtoSchema = z.object({
   seq: z.number().nullable().optional(),
   id: z.any().nullable().optional(),
@@ -88,7 +94,10 @@ export const BaseDtoSchema = z.object({
   updatedAt: z.string().nullable().optional(),
 });
 
-export const BaseReseponsePaginationDtoSchema = z.object({
+/**
+ * Page 조회시 돌아오는 Pagination 응답 형식 정의
+ */
+export const BaseResponsePaginationDtoSchema = z.object({
   endIndex: z.number(),
   lastPage: z.number(),
   length: z.number(),
@@ -97,10 +106,13 @@ export const BaseReseponsePaginationDtoSchema = z.object({
   startIndex: z.number(),
 });
 
+/**
+ * Page 조회시 돌아오는 기본 응답 형식 Schema
+ */
 export const BaseListResponseDtoSchema = <T>(dataSchema: z.ZodType<T>) =>
   z.object({
     list: z.array(dataSchema),
-    pagination: BaseReseponsePaginationDtoSchema,
+    pagination: BaseResponsePaginationDtoSchema,
   });
 
 export const BaseAllListResponseDtoSchema = <T>(dataSchema: z.ZodType<T>) =>
@@ -113,7 +125,7 @@ export const BaseExportCSVRequestDtoSchema = z.object({
 });
 
 /**
- * Page 조회시 사용될 기본 Params
+ * Page 조회시 사용될 기본 요청 Request Params
  */
 export const PageParamsDtoSchema = z.object({
   index: z.number().min(0),

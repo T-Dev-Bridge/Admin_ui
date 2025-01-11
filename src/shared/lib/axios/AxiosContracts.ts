@@ -2,6 +2,9 @@ import { AxiosHeaders, AxiosResponse } from "axios";
 import { ZodType } from "zod";
 import { AxiosValidationError } from "./AxiosValidationError";
 
+/**
+ * Axios 요청, 응답 data Body Object 타입 유효성 체크
+ */
 export class AxiosContracts {
   // 응답 객체 타입 유효성 확인
   static responseContract<Data>(schema: ZodType<Data>) {

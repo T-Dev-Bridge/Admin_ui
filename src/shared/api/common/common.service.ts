@@ -7,6 +7,17 @@ import {
   BaseAllListResponseDtoSchema,
 } from ".";
 
+/**
+ * Axios 요청 정의를 위한 base 클래스
+ * getList : Pagination 을 포함한 목록 조회
+ * getAllList : 전체 리스트 조회
+ * getOne : 단일 객체 조회
+ * create : 객체 생성
+ * update : 단일 객체 업데이트
+ * updateMultiple : 목록 업데이트
+ * deleteOne : 단일 객체 삭제
+ * deleteMultiple : 목록 삭제
+ */
 interface RequestParams<TRequest> {
   url?: string;
   data?: TRequest;
@@ -38,21 +49,6 @@ export class CommonService {
           BaseResponseDtoSchema(BaseListResponseDtoSchema(params.schema)),
         ),
       );
-  }
-
-  static async getCSV<TParams>(params: {
-    url?: string;
-    params: TParams;
-    schema: any;
-    config: { signal?: AbortSignal };
-  }): Promise<AxiosResponse> {
-    const fullUrl = this.buildFullUrl(params.url);
-    const response = await baseClient.get(fullUrl, {
-      params: params.params,
-      ...params.config,
-      responseType: "blob",
-    });
-    return response;
   }
 
   static getAllList<TParams>(params: {

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import {
-  BaseReseponsePaginationDtoSchema,
+  BaseResponsePaginationDtoSchema,
   PageParamsDtoSchema,
 } from "@/shared/api/common/common.contracts";
 import { CommonSchema } from "@/entities/common/common.contracts";
@@ -17,7 +17,7 @@ export const ManagerDtoSchema = CommonSchema.extend({
 
 export const ManagersDtoSchema = z.object({
   list: z.array(ManagerDtoSchema),
-  pagination: BaseReseponsePaginationDtoSchema,
+  pagination: BaseResponsePaginationDtoSchema,
 });
 
 export const FilterParamsDtoSchema = z.object({});

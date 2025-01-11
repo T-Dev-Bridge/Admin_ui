@@ -3,7 +3,7 @@ export {
   BaseResponseDtoSchema,
   BaseErrorResponseDtoSchema,
   BaseDtoSchema,
-  BaseReseponsePaginationDtoSchema,
+  BaseResponsePaginationDtoSchema,
   BaseListResponseDtoSchema,
   BaseAllListResponseDtoSchema,
   BaseExportCSVRequestDtoSchema,
