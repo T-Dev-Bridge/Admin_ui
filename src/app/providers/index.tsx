@@ -27,6 +27,8 @@ export const Provider = enhance(() => {
 
   // Snackbar = 알림 메세지
   // AlertDialogProvider = 팝업 알림 창
+  // Theme = 다크모드
+  // RTL = 좌우 정렬 모드
   return (
     <>
       <GlobalSpinner />

@@ -16,6 +16,9 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
+/**
+ * 공용 Alert 확인 창
+ */
 interface AlertDialogContextType {
   showDialog: (options: AlertDialogOptions) => void;
   hideDialog: () => void;

@@ -9,7 +9,8 @@
 ## FSD 구조  
 https://www.youtube.com/watch?v=64Fx5Y1gEOA  
 영상 내용 숙지 필수!! 내용을 이해했다고 가정하고 작성했습니다!  
-`아래 설명은 초기 세팅 기준으로 추후에 확장될 수 있습니다.`
+`아래 설명은 초기 세팅 기준으로 추후에 확장될 수 있습니다.`  
+index.ts를 통해 import 경로를 관리한다.
 
 - app - 최상위 Comp 관리 전역 Comp, Router, Axios intercepter 설정
   - AlertDialogProvider : 공용 Alert 창 정의 ( 확인, 취소 )

@@ -9,6 +9,9 @@ import {
 } from "react";
 import { Alert, Snackbar } from "@mui/material";
 
+/**
+ * 공용 알림창 Comp
+ */
 interface SnackbarProviderProps {
   children: ReactNode;
 }

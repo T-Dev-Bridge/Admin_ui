@@ -16,6 +16,9 @@ import { Spinner } from "@/shared/ui/spinner";
 import { page404Route } from "@/pages/page-404";
 import { loginPageRoute, managerPageRoute } from "@/pages";
 
+/**
+ * Routing 정보 관리
+ */
 function BubbleError() {
   const error = useRouteError();
   if (error) throw error;

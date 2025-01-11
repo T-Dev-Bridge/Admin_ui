@@ -7,6 +7,9 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AxiosError } from "axios";
 import { queryClient } from "@/shared/lib/react-query";
 
+/**
+ * React-query Provider 정의
+ */
 type QueryClientProviderProps = {
   children: ReactNode;
 };

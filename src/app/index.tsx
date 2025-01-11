@@ -18,7 +18,9 @@ window.addEventListener("error", (event) => {
     event.preventDefault();
   }
 });
-
+/**
+ * Axios 전역 interceptor 관리
+ */
 baseClient.interceptors.request.use(
   // config 객체는 Axios 요청에 담긴 설정 정보들을 담는다.
   // header, url, method, data, params 등이 있을 수 있다.
