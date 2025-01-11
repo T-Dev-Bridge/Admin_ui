@@ -92,6 +92,7 @@ export function withEnhancedTableHead<T>(
                 <TableCell
                   key={tableHeadCell.name}
                   sortDirection={orderBy === tableHeadCell.name ? order : false}
+                  align="center"
                 >
                   <TableSortLabel
                     active={orderBy === tableHeadCell.name}
@@ -110,7 +111,10 @@ export function withEnhancedTableHead<T>(
               );
             }
             return (
-              <TableCell key={tableHeadCell.name}>
+              <TableCell
+                key={tableHeadCell.name}
+                align="center"
+              >
                 <Typography variant="h6">
                   {t(
                     `${tableHeadCell.commonNamespace ? COMMON_NAMESPACE : translationNamespace}.${tableHeadCell.name}`,

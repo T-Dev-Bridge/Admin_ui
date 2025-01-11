@@ -149,7 +149,10 @@ export function withEnhancedTable<T>(
                     return (
                       <TableRow key={`${namespace} ${(row as any).seq}`}>
                         {selectable && (
-                          <TableCell padding="checkbox">
+                          <TableCell
+                            padding="checkbox"
+                            align="center"
+                          >
                             <CustomCheckbox
                               color="primary"
                               checked={isItemSelected}
@@ -159,13 +162,16 @@ export function withEnhancedTable<T>(
                         )}
                         {tableHeadCells.map((tableHeadCell) => (
                           <TableCell
+                            align="center"
                             key={`${namespace} ${(row as any).seq}}-${tableHeadCell.name}`}
                           >
                             {renderCells(row, tableHeadCell)}
                           </TableCell>
                         ))}
                         {renderRowActions && (
-                          <TableCell>{renderRowActions(row)}</TableCell>
+                          <TableCell align="center">
+                            {renderRowActions(row)}
+                          </TableCell>
                         )}
                       </TableRow>
                     );

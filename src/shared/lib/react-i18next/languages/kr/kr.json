@@ -15,6 +15,15 @@
       "change": "{{ entity }} 변경",
       "expired": "{{ entity }} 만료"
     },
+    "message": {
+      "success": "{{ entity }} {{ action }} 성공",
+      "error": "{{ entity }} {{ action }} 실패"
+    },
+    "action": {
+      "update": "수정",
+      "add": "추가",
+      "delete": "삭제"
+    },
     "work": "작업"
   },
   "notFound": {
@@ -29,7 +38,8 @@
     "login": "로그인",
     "search": "검색",
     "confirm": "확인",
-    "cancel": "취소"
+    "cancel": "취소",
+    "update": "수정"
   },
   "login": {
     "fields": {
@@ -39,8 +49,9 @@
   },
   "manager": {
     "seq": "#",
+    "entity": "관리자",
     "username": "관리자 명",
-    "email" : "email",
+    "email" : "이메일",
     "enabled" : "계정 활성화",
     "createdAt": "가입일"
   },
