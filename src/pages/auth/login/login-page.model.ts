@@ -1,6 +1,6 @@
 import { LoaderFunctionArgs, redirect } from "react-router";
 import { pathKeys } from "@/shared/lib/react-router";
-import { useSessionStore } from "@/shared/session";
+import { useSessionStore } from "@/shared/store/session";
 import { createLoginStore } from "@/features/auth/login/login.model";
 
 export class LoginLoader {

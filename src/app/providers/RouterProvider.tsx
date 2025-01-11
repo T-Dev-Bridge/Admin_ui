@@ -11,7 +11,7 @@ import {
 } from "react-router";
 import { compose, withSuspense } from "@/shared/lib/react";
 import { pathKeys } from "@/shared/lib/react-router";
-import { useSessionStore } from "@/shared/session";
+import { useSessionStore } from "@/shared/store/session";
 import { Spinner } from "@/shared/ui/spinner";
 import { page404Route } from "@/pages/page-404";
 import { loginPageRoute, managerPageRoute } from "@/pages";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { decryptData } from "../lib/crypto";
-import { useSessionStore } from "../session";
+import { useSessionStore } from "../store/session";
 
 export function useSyncSessionWithLocalStorage() {
   const setSession = useSessionStore((state) => state.setSession);

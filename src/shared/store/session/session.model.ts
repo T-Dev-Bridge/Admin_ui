@@ -1,8 +1,8 @@
 // Session 모델을 정의하고, zustand를 사용하여 세션을 관리하는 슬라이스를 생성한다.
 import { StateCreator, create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
-import { decryptData, encryptData } from "../lib/crypto";
-import { createSelectors } from "../lib/zustand/zustand.lib";
+import { decryptData, encryptData } from "../../lib/crypto";
+import { createSelectors } from "../../lib/zustand/zustand.lib";
 import { Session } from "./session.types";
 
 type State = {

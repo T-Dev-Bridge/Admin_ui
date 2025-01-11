@@ -1,4 +1,4 @@
-import { authTypesDto } from "../api/auth";
+import { authTypesDto } from "../../api/auth";
 import { Session } from "./session.types";
 
 export function transformLoginResponseWithTokenDtoToSession(

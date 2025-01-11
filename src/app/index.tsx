@@ -9,8 +9,8 @@ import {
   SHOULD_ADD_REFRESH_TOKEN,
 } from "@/shared/constants/constants";
 import { apiPathKeys } from "@/shared/lib/axios/config";
-import { useSessionStore } from "@/shared/session";
-import { Session } from "@/shared/session/session.types";
+import { useSessionStore } from "@/shared/store/session";
+import { Session } from "@/shared/store/session/session.types";
 import { Provider } from "./providers";
 
 window.addEventListener("error", (event) => {
@@ -67,6 +67,7 @@ baseClient.interceptors.response.use(
       !!session?.accessToken;
 
     // 토큰이 만료되어 409 에러가 발생했고, 요청 경로가 토큰 재발급 경로가 아닌 경우
+    // 토큰 재발급 GET 요청을 보내고 session (전역 상태 값)에 응답으로 온 AccessToken을 다시 저장한 뒤 재 요청 수행
     if (isExpired && !config.url?.includes(PATH_REFRESH_TOKEN)) {
       if (!refreshTokenPromise) {
         refreshTokenPromise = baseClient

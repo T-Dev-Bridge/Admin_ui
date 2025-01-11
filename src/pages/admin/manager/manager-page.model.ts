@@ -1,6 +1,6 @@
 import { LoaderFunctionArgs } from "react-router";
 import { queryClient } from "@/shared/lib/react-query";
-import { useSessionStore } from "@/shared/session";
+import { useSessionStore } from "@/shared/store/session";
 import { ManagerQueries } from "@/entities/admin";
 import { createManagerFilterStore } from "@/entities/admin/manager/manager.filter";
 

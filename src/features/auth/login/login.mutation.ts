@@ -7,7 +7,7 @@ import { AxiosHeaders } from "axios";
 import { AuthService } from "@/shared/api/auth";
 import { LoginResponseWithTokenDto } from "@/shared/api/auth/auth.types";
 import { REFRESH_TOKEN_HEADER } from "@/shared/constants/constants";
-import { sessionLib, useSessionStore } from "@/shared/session";
+import { sessionLib, useSessionStore } from "@/shared/store/session";
 import { loginModel } from "@/pages/auth/login/login-page.model";
 import { loginContract } from "./login-form";
 import { transformLoginToLoginDto } from "./login-form/login-form.lib";
