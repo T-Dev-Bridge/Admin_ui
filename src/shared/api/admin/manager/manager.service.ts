@@ -57,7 +57,9 @@ export class ManagerService extends CommonService {
   static createManagerMutation(data: {
     createManagerDto: CreateManagerDto;
   }): Promise<AxiosResponse> {
+    const url = "/signup";
     return this.create({
+      url,
       data: data.createManagerDto,
       requestSchema: CreateManagerDtoSchema,
       responseSchema: ManagerDtoSchema,

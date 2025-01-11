@@ -8,6 +8,7 @@ import { CreateManager } from "@/features/admin/manager/create-manager";
 import { DeleteManagerButton } from "@/features/admin/manager/delete-manager";
 import { ManagerTableContent } from "@/features/admin/manager/manager-table/manager-table-content";
 import { ManagerTableToolbar } from "@/features/admin/manager/manager-table/manager-table-toolbar";
+import { UpdateManager } from "@/features/admin/manager/update-manager";
 import { ManagerTableHeader } from "./manager-table-header";
 
 interface ManagerTableProps {
@@ -92,6 +93,7 @@ export function ManagerTable({
     if (cell.name === "work") {
       return (
         <Box flexDirection="row">
+          <UpdateManager row={row} />
           <DeleteManagerButton
             key={`${row.seq}-${cell.name}-button`}
             setIndex={managerFilter.setIndex}
