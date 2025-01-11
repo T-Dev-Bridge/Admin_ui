@@ -27,12 +27,12 @@ export default ({ mode }) => {
     server: {
       port: 3000,
       proxy: {
-        "/sw": {
+        "/bridge": {
           target: process.env.VITE_BASE_SERVER_URL,
           changeOrigin: true,
           secure: false,
           // rewrite: (path) => path.replace(/^\/api/, '/api'), // 여기서는 프리픽스를 그대로 유지
-          rewrite: (path) => path.replace(/^\/sw/, ""), // '/we' 프리픽스를 제거할 경우
+          rewrite: (path) => path.replace(/^\/bridge/, ""), //
         },
       },
     },

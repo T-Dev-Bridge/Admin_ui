@@ -42,5 +42,8 @@
     "email": "Email",
     "enabled": "Account Status",
     "createdAt": "Registration Date"
+  },
+  "menu": {
+    "manager": "Manager Management"
   }
 }

@@ -83,7 +83,9 @@ export class ManagerService extends CommonService {
   static deleteManagerMutation(data: {
     deleteManagerDto: DeleteManagerDto;
   }): Promise<AxiosResponse> {
+    const url = `/${data.deleteManagerDto.id}`;
     return this.deleteOne({
+      url: url,
       data: data.deleteManagerDto,
       requestSchema: DeleteManagerDtoSchema,
       responseSchema: ManagerDtoSchema,

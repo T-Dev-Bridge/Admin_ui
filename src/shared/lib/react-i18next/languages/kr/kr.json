@@ -27,7 +27,9 @@
     "add": "추가",
     "delete": "삭제",
     "login": "로그인",
-    "search": "검색"
+    "search": "검색",
+    "confirm": "확인",
+    "cancel": "취소"
   },
   "login": {
     "fields": {
@@ -41,5 +43,8 @@
     "email" : "email",
     "enabled" : "계정 활성화",
     "createdAt": "가입일"
+  },
+  "menu": {
+    "manager": "관리자 관리"
   }
 }
