@@ -3,7 +3,11 @@ import { Box, Chip, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { MANAGER_NAMESPACE } from "@/shared/constants/namespace";
 import { TableHeadCellType } from "@/shared/hoc/withEnhancedTableHead";
-import { filterManagerModel, Manager, ManagerQueries } from "@/entities/admin";
+import { Manager, ManagerQueries } from "@/entities/admin";
+import {
+  CommonFilterActions,
+  CommonFilterState,
+} from "@/entities/common/common.filter";
 import { CreateManager } from "@/features/admin/manager/create-manager";
 import { DeleteManagerButton } from "@/features/admin/manager/delete-manager";
 import { ManagerTableContent } from "@/features/admin/manager/manager-table/manager-table-content";
@@ -12,16 +16,14 @@ import { UpdateManager } from "@/features/admin/manager/update-manager";
 import { ManagerTableHeader } from "./manager-table-header";
 
 interface ManagerTableProps {
-  useManagerFilterStore: filterManagerModel.ManagerFilterStore;
+  filterStore: CommonFilterState & CommonFilterActions;
   managersQueryOptions: typeof ManagerQueries.managersQuery;
 }
 
 export function ManagerTable({
-  useManagerFilterStore,
+  filterStore,
   managersQueryOptions,
 }: ManagerTableProps) {
-  const managerFilter = useManagerFilterStore?.();
-
   const tableHeadCells: TableHeadCellType[] = [
     {
       name: "seq",
@@ -51,13 +53,13 @@ export function ManagerTable({
     isSuccess,
   } = useQuery(
     managersQueryOptions({
-      index: managerFilter.index,
-      size: managerFilter.size,
-      searchOp: managerFilter.searchOp,
-      selected: managerFilter.selected,
-      keywords: managerFilter.keywords,
-      order: managerFilter.order,
-      orderBy: managerFilter.orderBy,
+      index: filterStore.index,
+      size: filterStore.size,
+      searchOp: filterStore.searchOp,
+      selected: filterStore.selected,
+      keywords: filterStore.keywords,
+      order: filterStore.order,
+      orderBy: filterStore.orderBy,
     }),
   );
 
@@ -65,19 +67,19 @@ export function ManagerTable({
     if (event.target.checked) {
       const newSelecteds = managers?.list ?? [];
       if (newSelecteds?.length > 0) {
-        managerFilter.setSelected(newSelecteds);
+        filterStore.setSelected(newSelecteds);
       }
 
       return;
     }
-    managerFilter.setSelected([]);
+    filterStore.setSelected([]);
   };
 
   const handleRequestSort = (_: React.MouseEvent<unknown>, property: any) => {
     const isAsc =
-      managerFilter.orderBy === property && managerFilter.order === "asc";
-    managerFilter.setOrder(isAsc ? "desc" : "asc");
-    managerFilter.setOrderBy(property);
+      filterStore.orderBy === property && filterStore.order === "asc";
+    filterStore.setOrder(isAsc ? "desc" : "asc");
+    filterStore.setOrderBy(property);
   };
 
   const renderCells = (row: Manager, cell: TableHeadCellType) => {
@@ -96,7 +98,7 @@ export function ManagerTable({
           <UpdateManager row={row} />
           <DeleteManagerButton
             key={`${row.seq}-${cell.name}-button`}
-            setIndex={managerFilter.setIndex}
+            setIndex={filterStore.setIndex}
             manager={row}
           />
         </Box>
@@ -116,24 +118,24 @@ export function ManagerTable({
   return (
     <ManagerTableContent
       namespace={MANAGER_NAMESPACE}
-      filter={managerFilter}
+      filter={filterStore}
       tableHeadCells={tableHeadCells}
       isPending={isPending}
       isSuccess={isSuccess}
       TopButtons={<CreateManager />}
       TableToolbar={
         <ManagerTableToolbar
-          selected={managerFilter.selected}
-          setKeywords={managerFilter.setKeywords}
+          selected={filterStore.selected}
+          setKeywords={filterStore.setKeywords}
         />
       }
       TableHead={
         <ManagerTableHeader
-          numSelected={managerFilter.selected.length}
+          numSelected={filterStore.selected.length}
           rowCount={managers?.list.length ?? 0}
           tableHeadCells={tableHeadCells}
-          order={managerFilter.order}
-          orderBy={managerFilter.orderBy}
+          order={filterStore.order}
+          orderBy={filterStore.orderBy}
           onSelectAllClick={handleSelectAllClick}
           onRequestSort={handleRequestSort}
         />

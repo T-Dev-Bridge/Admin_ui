@@ -70,6 +70,7 @@ const ProtectedRoute = ({ element }: { element: React.ReactElement }) => {
 const browserRouter = createBrowserRouter([
   {
     errorElement: <BubbleError />,
+    HydrateFallback: LayoutSkeleton,
     children: [
       {
         element: createElement(ProtectedRoute, {

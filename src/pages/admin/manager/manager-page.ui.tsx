@@ -16,6 +16,8 @@ export function ManagerPage() {
     },
   ];
 
+  const filterStore = managerModel.useManageFilterStore();
+
   return (
     <PageContainer
       title={t("menu.manager")}
@@ -26,7 +28,7 @@ export function ManagerPage() {
         items={BCrumb}
       />
       <ManagerTable
-        useManagerFilterStore={managerModel.useManageFilterStore}
+        filterStore={filterStore}
         managersQueryOptions={boundManagersQuery}
       />
     </PageContainer>
