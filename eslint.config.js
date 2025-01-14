@@ -7,6 +7,7 @@ import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import eslintConfigPrettier from "eslint-config-prettier";
 import _import from "eslint-plugin-import";
+import reactCompiler from "eslint-plugin-react-compiler";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 
@@ -41,6 +42,7 @@ export default [
     plugins: {
       "react-refresh": reactRefresh,
       import: fixupPluginRules(_import),
+      "react-compiler": reactCompiler,
     },
 
     languageOptions: {
@@ -63,6 +65,8 @@ export default [
       "react/destructuring-assignment": ["off"],
       "no-throw-literal": "off",
       "consistent-return": "off",
+
+      "react-compiler/react-compiler": "error",
 
       "import/extensions": [
         "error",
