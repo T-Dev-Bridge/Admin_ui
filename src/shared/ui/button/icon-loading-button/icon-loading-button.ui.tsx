@@ -1,10 +1,10 @@
-import LoadingButton from "@mui/lab/LoadingButton";
-import { ButtonProps } from "@mui/material";
+import { ReactElement, ReactNode } from "react";
+import { Button, ButtonProps } from "@mui/material";
 
 interface LoadingButtonProps extends ButtonProps {
   loading: boolean;
   text: string;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
 }
 
 export function IconLoadingButton({
@@ -15,9 +15,9 @@ export function IconLoadingButton({
   icon,
   type = "button",
   ...rest
-}: LoadingButtonProps) {
+}: LoadingButtonProps): ReactElement {
   return (
-    <LoadingButton
+    <Button
       fullWidth
       disabled={disabled}
       loading={loading}
@@ -28,6 +28,6 @@ export function IconLoadingButton({
       {...rest}
     >
       {text}
-    </LoadingButton>
+    </Button>
   );
 }

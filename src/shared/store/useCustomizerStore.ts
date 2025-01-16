@@ -43,18 +43,19 @@ const useCustomizerStore = create<CustomizerState>((set) => ({
   isLanguage: "kr", // 기본 언어: 한국어
   isCardShadow: true, // 기본적으로 카드 그림자 활성화
   borderRadius: 7, // 기본 테두리 반경
-  setTheme: (theme) => set({ activeTheme: theme }), // 테마 설정
-  setDarkMode: (mode) => set({ activeMode: mode }), // 다크 모드 설정
-  setDir: (dir) => set({ activeDir: dir }), // 방향 설정
-  setLanguage: (language) => set({ isLanguage: language }), // 언어 설정
-  setCardShadow: (isCardShadow) => set({ isCardShadow }), // 카드 그림자 설정
-  toggleSidebar: () => set((state) => ({ isCollapse: !state.isCollapse })), // 사이드바 토글
-  hoverSidebar: (isSidebarHover) => set({ isSidebarHover }), // 사이드바 호버 상태 설정
-  toggleMobileSidebar: () =>
+  setTheme: (theme): void => set({ activeTheme: theme }), // 테마 설정
+  setDarkMode: (mode): void => set({ activeMode: mode }), // 다크 모드 설정
+  setDir: (dir): void => set({ activeDir: dir }), // 방향 설정
+  setLanguage: (language): void => set({ isLanguage: language }), // 언어 설정
+  setCardShadow: (isCardShadow): void => set({ isCardShadow }), // 카드 그림자 설정
+  toggleSidebar: (): void =>
+    set((state) => ({ isCollapse: !state.isCollapse })), // 사이드바 토글
+  hoverSidebar: (isSidebarHover): void => set({ isSidebarHover }), // 사이드바 호버 상태 설정
+  toggleMobileSidebar: (): void =>
     set((state) => ({ isMobileSidebar: !state.isMobileSidebar })), // 모바일 사이드바 토글
-  toggleLayout: (layout) => set({ isLayout: layout }), // 레이아웃 타입 설정
-  toggleHorizontal: (isHorizontal) => set({ isHorizontal }), // 수평 레이아웃 설정
-  setBorderRadius: (borderRadius) => set({ borderRadius }), // 테두리 반경 설정
+  toggleLayout: (layout): void => set({ isLayout: layout }), // 레이아웃 타입 설정
+  toggleHorizontal: (isHorizontal): void => set({ isHorizontal }), // 수평 레이아웃 설정
+  setBorderRadius: (borderRadius): void => set({ borderRadius }), // 테두리 반경 설정
 }));
 
 export default useCustomizerStore;

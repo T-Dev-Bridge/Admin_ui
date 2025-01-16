@@ -6,7 +6,6 @@ import eslint from "vite-plugin-eslint";
 import { resolve } from "path";
 import fs from "fs/promises";
 import svgr from "@svgr/rollup";
-import commonjs from '@rollup/plugin-commonjs';
 
 
 export default ({ mode }) => {
@@ -19,7 +18,6 @@ export default ({ mode }) => {
   const ReactCompilerConfig = {
     target: "19",
     source: (filename: string | string[]) => filename.includes("/src/"),
-    debug: process.env.NODE_ENV === "development", // 개발 환경에서 디버그 모드 활성화
     disable: {
       // disable memoization 을 False 함으로 메모이제이션을 사용한다는 의미
       memoization: false,
@@ -29,12 +27,12 @@ export default ({ mode }) => {
   return defineConfig({
     ...(mode !== "test" && {
       plugins: [
-        react({
-          babel: {
-            plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
-          },
-        }),
-        commonjs(),
+        react(),
+        // react({
+        //   babel: {
+        //     plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
+        //   },
+        // }),
         svgr(),
         eslint({
           overrideConfigFile: "eslint.config.js",

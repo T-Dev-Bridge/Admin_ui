@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import {
   IconButton,
   Box,
@@ -7,6 +8,7 @@ import {
   styled,
   Stack,
 } from "@mui/material";
+import { Theme } from "@mui/material/styles";
 import { IconMenu2 } from "@tabler/icons-react";
 import { Language } from "@/shared/layouts/language";
 import { MobileRightSidebar } from "@/shared/layouts/mobile-right-sidebar";
@@ -14,9 +16,9 @@ import { Notifications } from "@/shared/layouts/notification";
 import { Search } from "@/shared/layouts/search";
 import useCustomizerStore from "@/shared/store/useCustomizerStore";
 
-export function TopHeader() {
-  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
-  const lgDown = useMediaQuery((theme: any) => theme.breakpoints.down("lg"));
+export function TopHeader(): ReactElement {
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
 
   // drawer
   const customizer = useCustomizerStore();
@@ -49,8 +51,8 @@ export function TopHeader() {
           aria-label="menu"
           onClick={
             lgUp
-              ? () => customizer.toggleSidebar()
-              : () => customizer.toggleMobileSidebar()
+              ? (): void => customizer.toggleSidebar()
+              : (): void => customizer.toggleMobileSidebar()
           }
         >
           <IconMenu2 size="20" />

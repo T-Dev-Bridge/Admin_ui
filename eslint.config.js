@@ -7,6 +7,8 @@ import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import eslintConfigPrettier from "eslint-config-prettier";
 import _import from "eslint-plugin-import";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import react from "eslint-plugin-react";
 import reactCompiler from "eslint-plugin-react-compiler";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
@@ -32,18 +34,16 @@ export default [
     ],
   },
   ...fixupConfigRules(
-    compat.extends(
-      "plugin:react-hooks/recommended",
-      "plugin:prettier/recommended",
-      "prettier",
-    ),
+    compat.extends("plugin:prettier/recommended", "prettier"),
   ),
   {
     plugins: {
+      "@typescript-eslint": typescriptEslint,
+      react: react,
       "react-refresh": reactRefresh,
       import: fixupPluginRules(_import),
       "react-compiler": reactCompiler,
-      "jsx-a11y": require("eslint-plugin-jsx-a11y"),
+      "jsx-a11y": jsxA11y,
     },
 
     languageOptions: {
@@ -77,10 +77,12 @@ export default [
       "no-throw-literal": "off",
       // 함수 내에서 반환 여부 일관되지 않아도 허용
       "consistent-return": "off",
-      
+
+      // React compiler 규칙
+      // "react-compiler/react-compiler": "error",
+
       // React 관련 규칙 강화
       "react/no-danger": "error",
-      "react-compiler/react-compiler": "error",
       "react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
       "react/jsx-no-script-url": "error",
       "react/jsx-no-constructed-context-values": "warn",
@@ -95,8 +97,8 @@ export default [
       ],
 
       // TypeScript 관련 규칙 강화
-      "@typescript-eslint/explicit-function-return-type": "warn",
-      "@typescript-eslint/no-explicit-any": "warn",
+      // "@typescript-eslint/explicit-function-return-type": "warn",
+      // "@typescript-eslint/no-explicit-any": "warn",
 
       "import/extensions": [
         "error",
@@ -205,11 +207,11 @@ export default [
 
     languageOptions: {
       parser: tsParser,
-      ecmaVersion: "latest",
-      sourceType: "module",
-
       parserOptions: {
-        project: true,
+        project: "./tsconfig.json",
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
 

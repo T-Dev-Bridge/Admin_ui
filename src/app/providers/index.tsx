@@ -19,11 +19,10 @@ const enhance = compose((component) =>
 );
 
 export const Provider = enhance(() => {
-  // const routing = useRoutes(Router);
-  const theme = ThemeSettings();
-
   // UI 방향
   const activeDir = useCustomizerStore((state) => state.activeDir);
+
+  const theme = ThemeSettings();
 
   // Snackbar = 알림 메세지
   // AlertDialogProvider = 팝업 알림 창
