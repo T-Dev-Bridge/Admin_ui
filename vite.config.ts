@@ -6,6 +6,8 @@ import eslint from "vite-plugin-eslint";
 import { resolve } from "path";
 import fs from "fs/promises";
 import svgr from "@svgr/rollup";
+import commonjs from '@rollup/plugin-commonjs';
+
 
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -32,6 +34,7 @@ export default ({ mode }) => {
             plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
           },
         }),
+        commonjs(),
         svgr(),
         eslint({
           overrideConfigFile: "eslint.config.js",
