@@ -43,6 +43,7 @@ export default [
       "react-refresh": reactRefresh,
       import: fixupPluginRules(_import),
       "react-compiler": reactCompiler,
+      "jsx-a11y": require("eslint-plugin-jsx-a11y"),
     },
 
     languageOptions: {
@@ -54,19 +55,48 @@ export default [
     },
 
     rules: {
+      // HTML 사용 중 특수문자 허용
       "react/no-unescaped-entities": "off",
+      // 기본 React import 비활성화
       "react/react-in-jsx-scope": "off",
+      // 스프레드 연산자 통제 비활성화
       "react/jsx-props-no-spreading": "off",
+      // 함수형 컴포넌트 스타일 강제 비활성화
       "react/function-component-definition": "off",
+      // export 한개만 있을 때 default export 강제하는거 비활성화
       "import/prefer-default-export": "off",
+      // this 사용 강제 비활성화
       "class-methods-use-this": "off",
+      // 한 파일에 여러 클래스 정의 불가 비활성화
       "max-classes-per-file": "off",
+      // 식별자에 _ 사용 금지 비활성화
       "no-underscore-dangle": "off",
+      // 구조 분해 할당 강제하는거 비활성화
       "react/destructuring-assignment": ["off"],
+      // throw 키워드 리터럴 값 던지는거 허용
       "no-throw-literal": "off",
+      // 함수 내에서 반환 여부 일관되지 않아도 허용
       "consistent-return": "off",
-
+      
+      // React 관련 규칙 강화
+      "react/no-danger": "error",
       "react-compiler/react-compiler": "error",
+      "react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
+      "react/jsx-no-script-url": "error",
+      "react/jsx-no-constructed-context-values": "warn",
+
+      // Accessibility 관련 규칙
+      "jsx-a11y/alt-text": "error",
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          aspects: ["invalidHref", "preferButton"],
+        },
+      ],
+
+      // TypeScript 관련 규칙 강화
+      "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
 
       "import/extensions": [
         "error",

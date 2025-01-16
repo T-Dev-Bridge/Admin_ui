@@ -51,8 +51,8 @@
     "seq": "#",
     "entity": "관리자",
     "username": "관리자 명",
-    "email" : "이메일",
-    "enabled" : "계정 활성화",
+    "email": "이메일",
+    "enabled": "계정 활성화",
     "createdAt": "가입일"
   },
   "menu": {

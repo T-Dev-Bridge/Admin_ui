@@ -15,23 +15,21 @@ export default ({ mode }) => {
    * src 경로에 있는 파일 컴파일
    */
   const ReactCompilerConfig = {
-    target: '19',
-    source: (filename: string | string[]) => filename.includes('/src/'),
-    debug: process.env.NODE_ENV === 'development',  // 개발 환경에서 디버그 모드 활성화
+    target: "19",
+    source: (filename: string | string[]) => filename.includes("/src/"),
+    debug: process.env.NODE_ENV === "development", // 개발 환경에서 디버그 모드 활성화
     disable: {
       // disable memoization 을 False 함으로 메모이제이션을 사용한다는 의미
       memoization: false,
-    }
-  }
+    },
+  };
 
   return defineConfig({
     ...(mode !== "test" && {
       plugins: [
         react({
           babel: {
-            plugins: [
-              ["babel-plugin-react-compiler", ReactCompilerConfig],
-            ],
+            plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
           },
         }),
         svgr(),
