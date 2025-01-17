@@ -1,6 +1,6 @@
 import { Box, Chip, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import { Button } from "remoteApp/Button";
+import { RemoteButton } from "remoteApp/Button";
 import { MANAGER_NAMESPACE } from "@/shared/constants/namespace";
 import { TableHeadCellType } from "@/shared/hoc/withEnhancedTableHead";
 import { Manager, ManagerQueries } from "@/entities/admin";
@@ -101,7 +101,9 @@ export function ManagerTable({
             setIndex={filterStore.setIndex}
             manager={row}
           />
-          <Button onClick={() => console.log("Host Log")}>Click Me</Button>
+          <RemoteButton onClick={() => console.log("Host Log")}>
+            Click Me
+          </RemoteButton>
         </Box>
       );
     }
