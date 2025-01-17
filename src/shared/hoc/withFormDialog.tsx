@@ -104,7 +104,10 @@ export function withFormDialog<T extends FieldValues>(
         fullWidth
         open={open!}
         onClose={(_, reason) => {
-          if (reason === "backdropClick" && backdropClickClose) {
+          if (
+            (reason === "backdropClick" && backdropClickClose) ||
+            reason === "escapeKeyDown"
+          ) {
             handleClose();
           }
         }}
