@@ -20,7 +20,6 @@ export function IconLoadingButton({
     <Button
       fullWidth
       disabled={disabled}
-      loading={loading}
       variant="contained"
       color={color}
       startIcon={icon}

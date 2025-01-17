@@ -79,7 +79,7 @@ export default [
       "consistent-return": "off",
 
       // React compiler 규칙
-      // "react-compiler/react-compiler": "error",
+      "react-compiler/react-compiler": "error",
 
       // React 관련 규칙 강화
       "react/no-danger": "error",

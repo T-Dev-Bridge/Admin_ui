@@ -6,7 +6,7 @@ import eslint from "vite-plugin-eslint";
 import { resolve } from "path";
 import fs from "fs/promises";
 import svgr from "@svgr/rollup";
-
+import federation from "@originjs/vite-plugin-federation";
 
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -16,17 +16,19 @@ export default ({ mode }) => {
    * src 경로에 있는 파일 컴파일
    */
   const ReactCompilerConfig = {
-    target: "19",
-    source: (filename: string | string[]) => filename.includes("/src/"),
-    disable: {
-      // disable memoization 을 False 함으로 메모이제이션을 사용한다는 의미
-      memoization: false,
-    },
+    target: "19"
   };
 
   return defineConfig({
     ...(mode !== "test" && {
       plugins: [
+        federation({
+          name: 'hostApp',
+          remotes: {
+            remoteApp: 'http://localhost:4173/assets/remoteEntry.js',
+          },
+          shared: ["react", "react-dom"],
+        }),
         react(),
         // react({
         //   babel: {
@@ -86,7 +88,11 @@ export default ({ mode }) => {
       outDir: "dist",
       assetsDir: "assets",
       sourcemap: false,
-      cssCodeSplit: true,
+      // `true`로 설정할 경우 `CSS`가 JS 청크와 함께 분리되어 로드된다.
+      // `false`로 설정할 경우 `CSS`가 하나의 파일로 병합된다.
+      // `Module Federation`을 사용할 경우 `false`로 설정하는게 유용하다.
+      cssCodeSplit: false,
+      target: "esnext",
       rollupOptions: {
         output: {
           entryFileNames: "assets/[hash].js",

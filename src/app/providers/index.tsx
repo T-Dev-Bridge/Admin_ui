@@ -11,6 +11,9 @@ import { QueryClientProvider } from "./QueryClientProvider";
 import { CustomBrowserRouter } from "./RouterProvider";
 import { SnackbarProvider } from "./SnackbarProvider";
 
+/**
+ * 고차 Component (HOC)를 사용하여 에러 처리를 담당하는 컴포넌트
+ */
 const enhance = compose((component) =>
   withErrorBoundary(component, {
     FallbackComponent: ErrorHandler,
